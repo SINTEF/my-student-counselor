@@ -40,24 +40,24 @@ jobs:
           push: true
           tags: ${{ steps.meta-main.outputs.tags }}
           labels: ${{ steps.meta-main.outputs.labels }}
-  # deploy:
-  #   if: contains(github.ref, 'heads')
-  #   runs-on: ubuntu-latest
-  #   needs:
-  #     - build-and-push-image
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v3
-  #       with:
-  #         repository: ${{ env.GITOPS_REPOSITORY }}
-  #         ssh-key: ${{secrets.GITOPS_REPOSITORY_SSH_KEY}}
-  #     - name: Patch version
-  #       run: |
-  #         yq --inplace '.image.tag |= "sha-'$(git rev-parse --short $GITHUB_SHA)'"' deployments/my-student-counselor/image-tag.yaml
-  #     - name: Commit and push
-  #       run: |
-  #         git config user.email "gitops@sintef.cloud"
-  #         git config user.name "GitOps"
-  #         git commit -am "GitOps update for my-student-counselor"
-  #         git pull --rebase
-  #         git push
+  deploy:
+    if: contains(github.ref, 'heads')
+    runs-on: ubuntu-latest
+    needs:
+      - build-and-push-image
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ env.GITOPS_REPOSITORY }}
+          ssh-key: ${{secrets.GITOPS_REPOSITORY_SSH_KEY}}
+      - name: Patch version
+        run: |
+          yq --inplace '.image.tag |= "sha-'$(git rev-parse --short $GITHUB_SHA)'"' deployments/my-student-counselor/image-tag.yaml
+      - name: Commit and push
+        run: |
+          git config user.email "gitops@sintef.cloud"
+          git config user.name "GitOps"
+          git commit -am "GitOps update for my-student-counselor"
+          git pull --rebase
+          git push
