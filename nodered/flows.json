@@ -1,0 +1,2565 @@
+[
+  {
+      "id": "24af349bfbcbd7fb",
+      "type": "tab",
+      "label": "Users And UI",
+      "disabled": false,
+      "info": "",
+      "env": []
+  },
+  {
+      "id": "4c1a60e9c90cb241",
+      "type": "tab",
+      "label": "HTTP REST API",
+      "disabled": false,
+      "info": "",
+      "env": []
+  },
+  {
+      "id": "4658c0bf518b5f71",
+      "type": "tab",
+      "label": "Reminders",
+      "disabled": false,
+      "info": "",
+      "env": []
+  },
+  {
+      "id": "fb3bc12be66bc57d",
+      "type": "tab",
+      "label": "SMS sender",
+      "disabled": false,
+      "info": "",
+      "env": []
+  },
+  {
+      "id": "a1670b7d8c9f7259",
+      "type": "ui_base",
+      "theme": {
+          "name": "theme-light",
+          "lightTheme": {
+              "default": "#0094CE",
+              "baseColor": "#0094CE",
+              "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+              "edited": true,
+              "reset": false
+          },
+          "darkTheme": {
+              "default": "#097479",
+              "baseColor": "#097479",
+              "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+              "edited": false
+          },
+          "customTheme": {
+              "name": "Untitled Theme 1",
+              "default": "#4B7930",
+              "baseColor": "#4B7930",
+              "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+          },
+          "themeState": {
+              "base-color": {
+                  "default": "#0094CE",
+                  "value": "#0094CE",
+                  "edited": false
+              },
+              "page-titlebar-backgroundColor": {
+                  "value": "#0094CE",
+                  "edited": false
+              },
+              "page-backgroundColor": {
+                  "value": "#fafafa",
+                  "edited": false
+              },
+              "page-sidebar-backgroundColor": {
+                  "value": "#ffffff",
+                  "edited": false
+              },
+              "group-textColor": {
+                  "value": "#1bbfff",
+                  "edited": false
+              },
+              "group-borderColor": {
+                  "value": "#ffffff",
+                  "edited": false
+              },
+              "group-backgroundColor": {
+                  "value": "#ffffff",
+                  "edited": false
+              },
+              "widget-textColor": {
+                  "value": "#111111",
+                  "edited": false
+              },
+              "widget-backgroundColor": {
+                  "value": "#0094ce",
+                  "edited": false
+              },
+              "widget-borderColor": {
+                  "value": "#ffffff",
+                  "edited": false
+              },
+              "base-font": {
+                  "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+              }
+          },
+          "angularTheme": {
+              "primary": "indigo",
+              "accents": "blue",
+              "warn": "red",
+              "background": "grey",
+              "palette": "light"
+          }
+      },
+      "site": {
+          "name": "Node-RED Dashboard",
+          "hideToolbar": "false",
+          "allowSwipe": "false",
+          "lockMenu": "false",
+          "allowTempTheme": "true",
+          "dateFormat": "DD/MM/YYYY",
+          "sizes": {
+              "sx": 48,
+              "sy": 48,
+              "gx": 6,
+              "gy": 6,
+              "cx": 6,
+              "cy": 6,
+              "px": 0,
+              "py": 0
+          }
+      }
+  },
+  {
+      "id": "efa64ed72cb92a72",
+      "type": "ui_group",
+      "name": "Participants list",
+      "tab": "d3f39f56a11c75bf",
+      "order": 1,
+      "disp": true,
+      "width": "6",
+      "collapse": false,
+      "className": ""
+  },
+  {
+      "id": "feabcb8af5dd4b29",
+      "type": "ui_group",
+      "name": "Manage participants",
+      "tab": "d3f39f56a11c75bf",
+      "order": 3,
+      "disp": true,
+      "width": "6",
+      "collapse": true,
+      "className": ""
+  },
+  {
+      "id": "af89b80512c889a9",
+      "type": "ui_group",
+      "name": "Send SMS",
+      "tab": "d3f39f56a11c75bf",
+      "order": 2,
+      "disp": true,
+      "width": "6",
+      "collapse": false,
+      "className": ""
+  },
+  {
+      "id": "45a2069f17eca883",
+      "type": "ui_group",
+      "name": "Reminders",
+      "tab": "d3f39f56a11c75bf",
+      "order": 4,
+      "disp": true,
+      "width": "8",
+      "collapse": true,
+      "className": ""
+  },
+  {
+      "id": "d3f39f56a11c75bf",
+      "type": "ui_tab",
+      "name": "My Student Councellor Dashboard",
+      "icon": "dashboard",
+      "disabled": false,
+      "hidden": false
+  },
+  {
+      "id": "5a7e3567fb55c144",
+      "type": "ui_spacer",
+      "z": "24af349bfbcbd7fb",
+      "name": "spacer",
+      "group": "feabcb8af5dd4b29",
+      "order": 4,
+      "width": 1,
+      "height": 1
+  },
+  {
+      "id": "cef50968001022d0",
+      "type": "ui_spacer",
+      "z": "24af349bfbcbd7fb",
+      "name": "spacer",
+      "group": "feabcb8af5dd4b29",
+      "order": 6,
+      "width": 1,
+      "height": 1
+  },
+  {
+      "id": "9c0b2fc6a038bd4a",
+      "type": "ui_list",
+      "z": "24af349bfbcbd7fb",
+      "group": "efa64ed72cb92a72",
+      "name": "List of participants",
+      "order": 1,
+      "width": 6,
+      "height": 15,
+      "lineType": "two",
+      "actionType": "click",
+      "allowHTML": false,
+      "outputs": 1,
+      "topic": "",
+      "x": 690,
+      "y": 400,
+      "wires": [
+          [
+              "46437ef96a26decf"
+          ]
+      ]
+  },
+  {
+      "id": "27f233ad239f4393",
+      "type": "ui_form",
+      "z": "24af349bfbcbd7fb",
+      "name": "Registration form",
+      "label": "",
+      "group": "feabcb8af5dd4b29",
+      "order": 2,
+      "width": 6,
+      "height": 1,
+      "options": [
+          {
+              "label": "Name",
+              "value": "name",
+              "type": "text",
+              "required": true,
+              "rows": null
+          },
+          {
+              "label": "Phone number",
+              "value": "phoneNumber",
+              "type": "text",
+              "required": true,
+              "rows": null
+          }
+      ],
+      "formValue": {
+          "name": "",
+          "phoneNumber": ""
+      },
+      "payload": "",
+      "submit": "Register",
+      "cancel": "",
+      "topic": "topic",
+      "topicType": "msg",
+      "splitLayout": "",
+      "className": "",
+      "x": 210,
+      "y": 580,
+      "wires": [
+          [
+              "888935b62b107383"
+          ]
+      ]
+  },
+  {
+      "id": "888935b62b107383",
+      "type": "friendly-id",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "mode": "GENERATE-NANOID",
+      "charlen": "16",
+      "charset": "NO-LOOKALIKES",
+      "customs": "",
+      "tostatus": false,
+      "statusVal": "",
+      "statusType": "auto",
+      "inputFromVal": "",
+      "inputFromType": "auto",
+      "outputToVal": "id",
+      "outputToType": "msg",
+      "x": 410,
+      "y": 580,
+      "wires": [
+          [
+              "623201c7227321f7"
+          ]
+      ]
+  },
+  {
+      "id": "1954a5ed8f1a9a01",
+      "type": "inject",
+      "z": "24af349bfbcbd7fb",
+      "name": "OnStart",
+      "props": [
+          {
+              "p": "payload"
+          },
+          {
+              "p": "topic",
+              "vt": "str"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "x": 200,
+      "y": 240,
+      "wires": [
+          [
+              "0c58cbba90882394"
+          ]
+      ]
+  },
+  {
+      "id": "0c58cbba90882394",
+      "type": "function",
+      "z": "24af349bfbcbd7fb",
+      "name": "Initialise participants map",
+      "func": "const participants = global.get(\"participants\");\n\nif (!participants) {\n    global.set(\"participants\", {});\n}\n\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 430,
+      "y": 240,
+      "wires": [
+          [
+              "3bef439176f8dfb9"
+          ]
+      ]
+  },
+  {
+      "id": "f4d88f66128abf17",
+      "type": "function",
+      "z": "24af349bfbcbd7fb",
+      "name": "Load participants for list",
+      "func": "const participants = global.get(\"participants\");\n\nconst now = new Date();\nfunction formatActivity(participant) {\n    const { lastUpdate } = participant;\n    if (!lastUpdate) {\n        return \"no activity yet\";\n    }\n    const date = new Date(lastUpdate);\n    let diff = now-date;\n    const prettyDiff = prettyMs(diff, { compact: true});\n    \n    const prettyTime = date.toLocaleString('no-NB', {\n      timeZone: 'Europe/Oslo',\n      year: 'numeric',\n      month: '2-digit',\n      day: '2-digit',\n      hour: '2-digit',\n      minute: '2-digit',\n    });\n    \n    return `${prettyDiff} ago - ${prettyTime}`;\n}\n\nreturn {\n    payload: [...Object.entries(participants)].map(([id, participant]) => ({\n        id,\n        ...participant,\n        title: `${participant.name} - ${participant.phoneNumber}`,\n        description: formatActivity(participant),\n        menu: [\"SMS\", \"Delete\"]\n    })),\n};",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [
+          {
+              "var": "prettyMs",
+              "module": "pretty-ms"
+          }
+      ],
+      "x": 450,
+      "y": 400,
+      "wires": [
+          [
+              "9c0b2fc6a038bd4a"
+          ]
+      ]
+  },
+  {
+      "id": "623201c7227321f7",
+      "type": "function",
+      "z": "24af349bfbcbd7fb",
+      "name": "Register participant",
+      "func": "const participants = global.get(\"participants\");\n\nconst {name, phoneNumber} = msg.payload;\n\nfunction find(it, callback) {\n    for (const value of it) {\n        if (callback(value)) {\n            return value;\n        }\n    }\n}\n\nconst duplicate = find(Object.values(participants), (participant) => participant.phoneNumber === phoneNumber);\n\nif (duplicate) {\n    return [undefined,{\n        payload: `A participant \"${duplicate.name}\" already exists with the same phone number`,\n    }];\n}\n\nconst {id} = msg;\nconst participant = {id, name, phoneNumber};\nparticipants[id] = participant;\n\nreturn [{\n    payload: participant,\n}];",
+      "outputs": 2,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 620,
+      "y": 580,
+      "wires": [
+          [
+              "d1fb264f433f16a0",
+              "34340f2201dad6de"
+          ],
+          [
+              "d5c6d061eee0deeb"
+          ]
+      ]
+  },
+  {
+      "id": "d1fb264f433f16a0",
+      "type": "link out",
+      "z": "24af349bfbcbd7fb",
+      "name": "Refresh participants list",
+      "mode": "link",
+      "links": [
+          "8917a79f730ef911",
+          "e22aaa045e908d71"
+      ],
+      "x": 795,
+      "y": 540,
+      "wires": []
+  },
+  {
+      "id": "8917a79f730ef911",
+      "type": "link in",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "links": [
+          "d1fb264f433f16a0",
+          "3bef439176f8dfb9",
+          "103b544bea59169b"
+      ],
+      "x": 155,
+      "y": 380,
+      "wires": [
+          [
+              "f4d88f66128abf17"
+          ]
+      ]
+  },
+  {
+      "id": "3bef439176f8dfb9",
+      "type": "link out",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "mode": "link",
+      "links": [
+          "8917a79f730ef911"
+      ],
+      "x": 625,
+      "y": 240,
+      "wires": []
+  },
+  {
+      "id": "30ae1b44b04a9e0d",
+      "type": "ui_toast",
+      "z": "24af349bfbcbd7fb",
+      "position": "prompt",
+      "displayTime": "3",
+      "highlight": "",
+      "sendall": true,
+      "outputs": 1,
+      "ok": "Delete",
+      "cancel": "Cancel",
+      "raw": false,
+      "className": "",
+      "topic": "",
+      "name": "",
+      "x": 1410,
+      "y": 740,
+      "wires": [
+          [
+              "0f62079186840c18"
+          ]
+      ]
+  },
+  {
+      "id": "cdb2ae28e5502cf0",
+      "type": "template",
+      "z": "24af349bfbcbd7fb",
+      "name": "Confirm message",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Are you sure you want to\ndelete participant \"{{payload.name}}\"?\n\nPlease write the phone number\n{{payload.phoneNumber}} to confirm.",
+      "output": "str",
+      "x": 1230,
+      "y": 740,
+      "wires": [
+          [
+              "30ae1b44b04a9e0d"
+          ]
+      ]
+  },
+  {
+      "id": "0f62079186840c18",
+      "type": "switch",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "property": "payload",
+      "propertyType": "msg",
+      "rules": [
+          {
+              "t": "eq",
+              "v": "participant.phoneNumber",
+              "vt": "msg"
+          },
+          {
+              "t": "eq",
+              "v": "Cancel",
+              "vt": "str"
+          },
+          {
+              "t": "else"
+          }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 3,
+      "x": 1570,
+      "y": 740,
+      "wires": [
+          [
+              "5dedf92d7e7ec7db"
+          ],
+          [],
+          [
+              "01831844518f159f"
+          ]
+      ]
+  },
+  {
+      "id": "e26ad7eecd8ed271",
+      "type": "change",
+      "z": "24af349bfbcbd7fb",
+      "name": "Copy participant",
+      "rules": [
+          {
+              "t": "set",
+              "p": "participant",
+              "pt": "msg",
+              "to": "selectedParticipant",
+              "tot": "flow",
+              "dc": true
+          },
+          {
+              "t": "set",
+              "p": "payload",
+              "pt": "msg",
+              "to": "selectedParticipant",
+              "tot": "flow",
+              "dc": true
+          }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 1030,
+      "y": 740,
+      "wires": [
+          [
+              "cdb2ae28e5502cf0"
+          ]
+      ]
+  },
+  {
+      "id": "2d05a8717911d8ce",
+      "type": "ui_toast",
+      "z": "24af349bfbcbd7fb",
+      "position": "top right",
+      "displayTime": "3",
+      "highlight": "",
+      "sendall": true,
+      "outputs": 0,
+      "ok": "OK",
+      "cancel": "",
+      "raw": false,
+      "className": "",
+      "topic": "",
+      "name": "",
+      "x": 1990,
+      "y": 760,
+      "wires": []
+  },
+  {
+      "id": "5dedf92d7e7ec7db",
+      "type": "function",
+      "z": "24af349bfbcbd7fb",
+      "name": "Delete participant",
+      "func": "const participants = global.get(\"participants\");\ndelete participants[msg.participant.id];\n\nreturn {\n    payload: `Deleted ${msg.participant.name}`,\n    id: msg.participant.id,\n}",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 1750,
+      "y": 720,
+      "wires": [
+          [
+              "2d05a8717911d8ce",
+              "103b544bea59169b",
+              "869805fa0b4e9f9a"
+          ]
+      ]
+  },
+  {
+      "id": "103b544bea59169b",
+      "type": "link out",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "mode": "link",
+      "links": [
+          "65331d1738541636",
+          "8917a79f730ef911"
+      ],
+      "x": 1925,
+      "y": 720,
+      "wires": []
+  },
+  {
+      "id": "01831844518f159f",
+      "type": "change",
+      "z": "24af349bfbcbd7fb",
+      "name": "Error message",
+      "rules": [
+          {
+              "t": "set",
+              "p": "payload",
+              "pt": "msg",
+              "to": "You didn't write the phone number correctly I'm afraid.",
+              "tot": "str"
+          }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 1740,
+      "y": 760,
+      "wires": [
+          [
+              "2d05a8717911d8ce"
+          ]
+      ]
+  },
+  {
+      "id": "848c27ef41d29871",
+      "type": "ui_toast",
+      "z": "24af349bfbcbd7fb",
+      "position": "top right",
+      "displayTime": "3",
+      "highlight": "",
+      "sendall": true,
+      "outputs": 0,
+      "ok": "OK",
+      "cancel": "",
+      "raw": false,
+      "className": "",
+      "topic": "",
+      "name": "",
+      "x": 1090,
+      "y": 640,
+      "wires": []
+  },
+  {
+      "id": "d8a552ae4a160140",
+      "type": "inject",
+      "z": "24af349bfbcbd7fb",
+      "name": "Every minute",
+      "props": [
+          {
+              "p": "payload"
+          },
+          {
+              "p": "topic",
+              "vt": "str"
+          }
+      ],
+      "repeat": "60",
+      "crontab": "",
+      "once": true,
+      "onceDelay": "60",
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "x": 220,
+      "y": 420,
+      "wires": [
+          [
+              "f4d88f66128abf17"
+          ]
+      ]
+  },
+  {
+      "id": "310ef53ad11f553b",
+      "type": "comment",
+      "z": "24af349bfbcbd7fb",
+      "name": "Participants data structure",
+      "info": "",
+      "x": 230,
+      "y": 180,
+      "wires": []
+  },
+  {
+      "id": "f4dd439386a81dc1",
+      "type": "comment",
+      "z": "24af349bfbcbd7fb",
+      "name": "Participants list",
+      "info": "",
+      "x": 200,
+      "y": 340,
+      "wires": []
+  },
+  {
+      "id": "2d5d88c3e988555c",
+      "type": "comment",
+      "z": "24af349bfbcbd7fb",
+      "name": "Register participant",
+      "info": "",
+      "x": 210,
+      "y": 520,
+      "wires": []
+  },
+  {
+      "id": "53bf9a03030adc39",
+      "type": "comment",
+      "z": "24af349bfbcbd7fb",
+      "name": "Delete participant",
+      "info": "",
+      "x": 210,
+      "y": 680,
+      "wires": []
+  },
+  {
+      "id": "f5e4bde333cce76d",
+      "type": "ui_form",
+      "z": "24af349bfbcbd7fb",
+      "name": "SMS Form",
+      "label": "",
+      "group": "af89b80512c889a9",
+      "order": 10,
+      "width": 0,
+      "height": 0,
+      "options": [
+          {
+              "label": "Message",
+              "value": "message",
+              "type": "multiline",
+              "required": true,
+              "rows": 6
+          }
+      ],
+      "formValue": {
+          "message": ""
+      },
+      "payload": "",
+      "submit": "submit",
+      "cancel": "cancel",
+      "topic": "topic",
+      "topicType": "msg",
+      "splitLayout": "",
+      "className": "",
+      "x": 1070,
+      "y": 1200,
+      "wires": [
+          [
+              "364ae2f53ddda0be",
+              "2ff715cdcf5aa112"
+          ]
+      ]
+  },
+  {
+      "id": "27ac13b5cd8db619",
+      "type": "ui_text",
+      "z": "24af349bfbcbd7fb",
+      "group": "af89b80512c889a9",
+      "order": 1,
+      "width": 0,
+      "height": 0,
+      "name": "",
+      "label": "Name",
+      "format": "{{msg.payload.name}}",
+      "layout": "row-spread",
+      "className": "",
+      "x": 270,
+      "y": 940,
+      "wires": []
+  },
+  {
+      "id": "e83be0b07976e2e3",
+      "type": "ui_text",
+      "z": "24af349bfbcbd7fb",
+      "group": "af89b80512c889a9",
+      "order": 3,
+      "width": 0,
+      "height": 0,
+      "name": "",
+      "label": "Phone Number",
+      "format": "{{msg.payload.phoneNumber}}",
+      "layout": "row-spread",
+      "className": "",
+      "x": 300,
+      "y": 980,
+      "wires": []
+  },
+  {
+      "id": "f098bffd03dced1c",
+      "type": "ui_text",
+      "z": "24af349bfbcbd7fb",
+      "group": "af89b80512c889a9",
+      "order": 2,
+      "width": 0,
+      "height": 0,
+      "name": "",
+      "label": "Id",
+      "format": "{{msg.payload.id}}",
+      "layout": "row-spread",
+      "className": "",
+      "x": 270,
+      "y": 1020,
+      "wires": []
+  },
+  {
+      "id": "46437ef96a26decf",
+      "type": "link out",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "mode": "link",
+      "links": [
+          "e22aaa045e908d71",
+          "f4fdbb8ea3e908b8"
+      ],
+      "x": 835,
+      "y": 400,
+      "wires": []
+  },
+  {
+      "id": "e22aaa045e908d71",
+      "type": "link in",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "links": [
+          "46437ef96a26decf",
+          "d1fb264f433f16a0",
+          "c975f3ee52090516"
+      ],
+      "x": 135,
+      "y": 960,
+      "wires": [
+          [
+              "27ac13b5cd8db619",
+              "e83be0b07976e2e3",
+              "f098bffd03dced1c",
+              "eec9969e59f4d366"
+          ]
+      ]
+  },
+  {
+      "id": "1fef6904da1f8479",
+      "type": "ui_button",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "group": "af89b80512c889a9",
+      "order": 4,
+      "width": 2,
+      "height": 1,
+      "passthru": true,
+      "label": "Invite",
+      "tooltip": "",
+      "color": "",
+      "bgcolor": "",
+      "className": "",
+      "icon": "",
+      "payload": "selectedParticipant",
+      "payloadType": "flow",
+      "topic": "i",
+      "topicType": "str",
+      "x": 270,
+      "y": 1160,
+      "wires": [
+          [
+              "ee7732d716b1cdfe"
+          ]
+      ]
+  },
+  {
+      "id": "c86a5142deb2682a",
+      "type": "ui_button",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "group": "af89b80512c889a9",
+      "order": 6,
+      "width": 2,
+      "height": 1,
+      "passthru": false,
+      "label": "Remind",
+      "tooltip": "",
+      "color": "",
+      "bgcolor": "",
+      "className": "",
+      "icon": "",
+      "payload": "selectedParticipant",
+      "payloadType": "flow",
+      "topic": "r",
+      "topicType": "str",
+      "x": 280,
+      "y": 1200,
+      "wires": [
+          [
+              "85ea04a49b4d16cd"
+          ]
+      ]
+  },
+  {
+      "id": "be9eaf36f7ca0765",
+      "type": "ui_button",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "group": "af89b80512c889a9",
+      "order": 5,
+      "width": 2,
+      "height": 1,
+      "passthru": false,
+      "label": "Insult",
+      "tooltip": "",
+      "color": "",
+      "bgcolor": "",
+      "className": "",
+      "icon": "",
+      "payload": "selectedParticipant",
+      "payloadType": "flow",
+      "topic": "g",
+      "topicType": "str",
+      "x": 270,
+      "y": 1240,
+      "wires": [
+          [
+              "1852f8f7e23afef0"
+          ]
+      ]
+  },
+  {
+      "id": "85ea04a49b4d16cd",
+      "type": "template",
+      "z": "24af349bfbcbd7fb",
+      "name": "remind message",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Hei {{payload.name}}, it has been some time since we talked. Are you alright?",
+      "output": "str",
+      "x": 470,
+      "y": 1200,
+      "wires": [
+          [
+              "7e7cf5bde2f9ab09"
+          ]
+      ]
+  },
+  {
+      "id": "7e7cf5bde2f9ab09",
+      "type": "function",
+      "z": "24af349bfbcbd7fb",
+      "name": "Set form message",
+      "func": "const id = flow.get(\"selectedParticipant\").id;\n\nif (!id) {\n    return [];\n}\n\nconst topic = msg.topic;\nconst link = `http://my-student-counsellor.sintef.cloud/#${id}.${topic}`;\n\nconst isInvite = topic === 'i';\n\nconst noAnswerMessage = 'I cannot reply to this SMS. Please use the link :-)';\n\nreturn {\n    payload: {\n        message: `\\n${msg.payload}${isInvite ? ' ' : '\\n\\n'}${link}\\n${noAnswerMessage}`,\n    },\n};",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 850,
+      "y": 1200,
+      "wires": [
+          [
+              "f5e4bde333cce76d"
+          ]
+      ]
+  },
+  {
+      "id": "eec9969e59f4d366",
+      "type": "change",
+      "z": "24af349bfbcbd7fb",
+      "name": "Set selectedParticipant",
+      "rules": [
+          {
+              "t": "set",
+              "p": "selectedParticipant",
+              "pt": "flow",
+              "to": "payload",
+              "tot": "msg",
+              "dc": true
+          }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 330,
+      "y": 1060,
+      "wires": [
+          [
+              "b508ddbf71bc8aa5"
+          ]
+      ]
+  },
+  {
+      "id": "34dfa49530b1d8f5",
+      "type": "template",
+      "z": "24af349bfbcbd7fb",
+      "name": "default message",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Hei {{payload.name}},",
+      "output": "str",
+      "x": 470,
+      "y": 1120,
+      "wires": [
+          [
+              "7e7cf5bde2f9ab09"
+          ]
+      ]
+  },
+  {
+      "id": "ee7732d716b1cdfe",
+      "type": "template",
+      "z": "24af349bfbcbd7fb",
+      "name": "invite message",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Welcome {{payload.name}}. This is a pleasure to work with you.\n\nWe can discuss through the following link:",
+      "output": "str",
+      "x": 460,
+      "y": 1160,
+      "wires": [
+          [
+              "7e7cf5bde2f9ab09"
+          ]
+      ]
+  },
+  {
+      "id": "1852f8f7e23afef0",
+      "type": "template",
+      "z": "24af349bfbcbd7fb",
+      "name": "insult message",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "You are doing great!",
+      "output": "str",
+      "x": 460,
+      "y": 1240,
+      "wires": [
+          [
+              "7e7cf5bde2f9ab09"
+          ]
+      ]
+  },
+  {
+      "id": "db8db67d5cc69b4d",
+      "type": "ui_button",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "group": "af89b80512c889a9",
+      "order": 7,
+      "width": 2,
+      "height": 1,
+      "passthru": false,
+      "label": "Let's work!",
+      "tooltip": "",
+      "color": "",
+      "bgcolor": "",
+      "className": "",
+      "icon": "",
+      "payload": "selectedParticipant",
+      "payloadType": "flow",
+      "topic": "w",
+      "topicType": "str",
+      "x": 290,
+      "y": 1280,
+      "wires": [
+          [
+              "d14eba50c950c8a1"
+          ]
+      ]
+  },
+  {
+      "id": "7f0fc3fde508e6f5",
+      "type": "ui_button",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "group": "af89b80512c889a9",
+      "order": 8,
+      "width": 2,
+      "height": 1,
+      "passthru": false,
+      "label": "Feedback",
+      "tooltip": "",
+      "color": "",
+      "bgcolor": "",
+      "className": "",
+      "icon": "",
+      "payload": "selectedParticipant",
+      "payloadType": "flow",
+      "topic": "f",
+      "topicType": "str",
+      "x": 280,
+      "y": 1320,
+      "wires": [
+          [
+              "03379cab80b9cb12"
+          ]
+      ]
+  },
+  {
+      "id": "03379cab80b9cb12",
+      "type": "template",
+      "z": "24af349bfbcbd7fb",
+      "name": "feedback message",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Hei {{payload.name}}, how are we doing together?",
+      "output": "str",
+      "x": 470,
+      "y": 1320,
+      "wires": [
+          [
+              "7e7cf5bde2f9ab09"
+          ]
+      ]
+  },
+  {
+      "id": "d14eba50c950c8a1",
+      "type": "template",
+      "z": "24af349bfbcbd7fb",
+      "name": "work message",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Hei {{payload.name}}. It's time to work !!",
+      "output": "str",
+      "x": 460,
+      "y": 1280,
+      "wires": [
+          [
+              "7e7cf5bde2f9ab09"
+          ]
+      ]
+  },
+  {
+      "id": "b508ddbf71bc8aa5",
+      "type": "ui_button",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "group": "af89b80512c889a9",
+      "order": 9,
+      "width": 2,
+      "height": 1,
+      "passthru": true,
+      "label": "Empty",
+      "tooltip": "",
+      "color": "",
+      "bgcolor": "",
+      "className": "",
+      "icon": "",
+      "payload": "selectedParticipant",
+      "payloadType": "flow",
+      "topic": "e",
+      "topicType": "str",
+      "x": 270,
+      "y": 1120,
+      "wires": [
+          [
+              "34dfa49530b1d8f5"
+          ]
+      ]
+  },
+  {
+      "id": "d5c6d061eee0deeb",
+      "type": "template",
+      "z": "24af349bfbcbd7fb",
+      "name": "Notification message",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Participant {{payload.name}} is correctly registered.",
+      "output": "str",
+      "x": 840,
+      "y": 640,
+      "wires": [
+          [
+              "848c27ef41d29871"
+          ]
+      ]
+  },
+  {
+      "id": "8b70566e433aecce",
+      "type": "link in",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "links": [
+          "cb52bbc360209e05"
+      ],
+      "x": 165,
+      "y": 1160,
+      "wires": [
+          [
+              "1fef6904da1f8479"
+          ]
+      ]
+  },
+  {
+      "id": "cb52bbc360209e05",
+      "type": "link out",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "mode": "link",
+      "links": [
+          "8b70566e433aecce",
+          "f4fdbb8ea3e908b8"
+      ],
+      "x": 965,
+      "y": 580,
+      "wires": []
+  },
+  {
+      "id": "34340f2201dad6de",
+      "type": "delay",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "pauseType": "delay",
+      "timeout": "100",
+      "timeoutUnits": "milliseconds",
+      "rate": "1",
+      "nbRateUnits": "1",
+      "rateUnits": "second",
+      "randomFirst": "1",
+      "randomLast": "5",
+      "randomUnits": "seconds",
+      "drop": false,
+      "allowrate": false,
+      "outputs": 1,
+      "x": 850,
+      "y": 580,
+      "wires": [
+          [
+              "cb52bbc360209e05"
+          ]
+      ],
+      "info": "This delay is used to update the message after the right values have been set. It's a bit a hack."
+  },
+  {
+      "id": "93189e08afbfce04",
+      "type": "comment",
+      "z": "24af349bfbcbd7fb",
+      "name": "SMS Form",
+      "info": "",
+      "x": 180,
+      "y": 900,
+      "wires": []
+  },
+  {
+      "id": "2ff715cdcf5aa112",
+      "type": "change",
+      "z": "24af349bfbcbd7fb",
+      "name": "Configure SMS",
+      "rules": [
+          {
+              "t": "set",
+              "p": "payload",
+              "pt": "msg",
+              "to": "payload.message",
+              "tot": "msg"
+          },
+          {
+              "t": "set",
+              "p": "to",
+              "pt": "msg",
+              "to": "selectedParticipant.phoneNumber",
+              "tot": "flow"
+          }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 1280,
+      "y": 1200,
+      "wires": [
+          [
+              "3fb3cfd7d673ea62"
+          ]
+      ]
+  },
+  {
+      "id": "a484f6fadb633840",
+      "type": "link in",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "links": [
+          "364ae2f53ddda0be"
+      ],
+      "x": 165,
+      "y": 1120,
+      "wires": [
+          [
+              "b508ddbf71bc8aa5"
+          ]
+      ]
+  },
+  {
+      "id": "364ae2f53ddda0be",
+      "type": "link out",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "mode": "link",
+      "links": [
+          "a484f6fadb633840"
+      ],
+      "x": 1215,
+      "y": 1240,
+      "wires": []
+  },
+  {
+      "id": "b79a4924a5d51335",
+      "type": "ui_toast",
+      "z": "24af349bfbcbd7fb",
+      "position": "top right",
+      "displayTime": "3",
+      "highlight": "",
+      "sendall": true,
+      "outputs": 0,
+      "ok": "OK",
+      "cancel": "",
+      "raw": false,
+      "className": "",
+      "topic": "",
+      "name": "",
+      "x": 1870,
+      "y": 1200,
+      "wires": []
+  },
+  {
+      "id": "7808745d7969c60f",
+      "type": "change",
+      "z": "24af349bfbcbd7fb",
+      "name": "Sent message",
+      "rules": [
+          {
+              "t": "set",
+              "p": "payload",
+              "pt": "msg",
+              "to": "Message sent!",
+              "tot": "str"
+          }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 1660,
+      "y": 1200,
+      "wires": [
+          [
+              "b79a4924a5d51335"
+          ]
+      ]
+  },
+  {
+      "id": "3fb3cfd7d673ea62",
+      "type": "link call",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "links": [
+          "7a50c2de2a218589"
+      ],
+      "timeout": "30",
+      "x": 1480,
+      "y": 1200,
+      "wires": [
+          [
+              "7808745d7969c60f"
+          ]
+      ]
+  },
+  {
+      "id": "57f0d59977fe31d1",
+      "type": "comment",
+      "z": "24af349bfbcbd7fb",
+      "name": "Send SMS from form",
+      "info": "",
+      "x": 1300,
+      "y": 1160,
+      "wires": []
+  },
+  {
+      "id": "bbdefdcc74506876",
+      "type": "ui_button",
+      "z": "24af349bfbcbd7fb",
+      "name": "Delete button",
+      "group": "feabcb8af5dd4b29",
+      "order": 5,
+      "width": 4,
+      "height": 1,
+      "passthru": false,
+      "label": "{{label}}",
+      "tooltip": "",
+      "color": "",
+      "bgcolor": "#ff1010",
+      "className": "",
+      "icon": "fa-trash",
+      "payload": "",
+      "payloadType": "str",
+      "topic": "topic",
+      "topicType": "msg",
+      "x": 840,
+      "y": 740,
+      "wires": [
+          [
+              "e26ad7eecd8ed271"
+          ]
+      ]
+  },
+  {
+      "id": "306c2c61951ac557",
+      "type": "ui_text",
+      "z": "24af349bfbcbd7fb",
+      "group": "feabcb8af5dd4b29",
+      "order": 1,
+      "width": 0,
+      "height": 0,
+      "name": "Register new participant title",
+      "label": "",
+      "format": "Register new participant",
+      "layout": "row-left",
+      "className": "",
+      "x": 440,
+      "y": 520,
+      "wires": []
+  },
+  {
+      "id": "2c2d45f2efc9a040",
+      "type": "ui_text",
+      "z": "24af349bfbcbd7fb",
+      "group": "feabcb8af5dd4b29",
+      "order": 3,
+      "width": 0,
+      "height": 0,
+      "name": "Delete participant title",
+      "label": "",
+      "format": "Delete participant",
+      "layout": "row-left",
+      "className": "",
+      "x": 240,
+      "y": 720,
+      "wires": []
+  },
+  {
+      "id": "38526cc686fbf1b4",
+      "type": "inject",
+      "z": "24af349bfbcbd7fb",
+      "name": "First label",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "x": 440,
+      "y": 700,
+      "wires": [
+          [
+              "84957bd977fdf293"
+          ]
+      ]
+  },
+  {
+      "id": "85e7f38b342a457b",
+      "type": "template",
+      "z": "24af349bfbcbd7fb",
+      "name": "Label template",
+      "field": "label",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Delete {{payload.name}}",
+      "output": "str",
+      "x": 280,
+      "y": 780,
+      "wires": [
+          [
+              "08a7545b5eab0047"
+          ]
+      ]
+  },
+  {
+      "id": "f4fdbb8ea3e908b8",
+      "type": "link in",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "links": [
+          "46437ef96a26decf",
+          "cb52bbc360209e05"
+      ],
+      "x": 145,
+      "y": 780,
+      "wires": [
+          [
+              "85e7f38b342a457b"
+          ]
+      ]
+  },
+  {
+      "id": "08a7545b5eab0047",
+      "type": "change",
+      "z": "24af349bfbcbd7fb",
+      "name": "Enable button",
+      "rules": [
+          {
+              "t": "set",
+              "p": "enabled",
+              "pt": "msg",
+              "to": "true",
+              "tot": "bool"
+          }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 480,
+      "y": 780,
+      "wires": [
+          [
+              "bbdefdcc74506876"
+          ]
+      ]
+  },
+  {
+      "id": "869805fa0b4e9f9a",
+      "type": "change",
+      "z": "24af349bfbcbd7fb",
+      "name": "Set empty participant",
+      "rules": [
+          {
+              "t": "set",
+              "p": "payload",
+              "pt": "msg",
+              "to": "{\"name\":\"\",\"phoneNumber\":\"\",\"id\":\"\"}",
+              "tot": "json"
+          }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 1980,
+      "y": 800,
+      "wires": [
+          [
+              "c975f3ee52090516"
+          ]
+      ]
+  },
+  {
+      "id": "c975f3ee52090516",
+      "type": "link out",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "mode": "link",
+      "links": [
+          "e22aaa045e908d71",
+          "0ea330a556393257"
+      ],
+      "x": 2115,
+      "y": 800,
+      "wires": []
+  },
+  {
+      "id": "84957bd977fdf293",
+      "type": "change",
+      "z": "24af349bfbcbd7fb",
+      "name": "Disable button",
+      "rules": [
+          {
+              "t": "set",
+              "p": "enabled",
+              "pt": "msg",
+              "to": "false",
+              "tot": "bool"
+          },
+          {
+              "t": "set",
+              "p": "label",
+              "pt": "msg",
+              "to": "",
+              "tot": "str"
+          }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 620,
+      "y": 720,
+      "wires": [
+          [
+              "bbdefdcc74506876"
+          ]
+      ]
+  },
+  {
+      "id": "0ea330a556393257",
+      "type": "link in",
+      "z": "24af349bfbcbd7fb",
+      "name": "",
+      "links": [
+          "c975f3ee52090516"
+      ],
+      "x": 485,
+      "y": 740,
+      "wires": [
+          [
+              "84957bd977fdf293"
+          ]
+      ]
+  },
+  {
+      "id": "3f72a4abf31f1793",
+      "type": "comment",
+      "z": "24af349bfbcbd7fb",
+      "name": "Reminders",
+      "info": "",
+      "x": 200,
+      "y": 1400,
+      "wires": []
+  },
+  {
+      "id": "d7810cf6a2aee894",
+      "type": "ui_table",
+      "z": "24af349bfbcbd7fb",
+      "group": "45a2069f17eca883",
+      "name": "Reminders table",
+      "order": 0,
+      "width": "8",
+      "height": "8",
+      "columns": [
+          {
+              "field": "type",
+              "title": "Type",
+              "width": "",
+              "align": "left",
+              "formatter": "plaintext",
+              "formatterParams": {
+                  "target": "_blank"
+              }
+          },
+          {
+              "field": "name",
+              "title": "Name",
+              "width": "",
+              "align": "left",
+              "formatter": "plaintext",
+              "formatterParams": {
+                  "target": "_blank"
+              }
+          },
+          {
+              "field": "date",
+              "title": "Date",
+              "width": "",
+              "align": "right",
+              "formatter": "plaintext",
+              "formatterParams": {
+                  "target": "_blank"
+              }
+          }
+      ],
+      "outputs": 0,
+      "cts": false,
+      "x": 760,
+      "y": 1440,
+      "wires": []
+  },
+  {
+      "id": "c5086984b80fb0dd",
+      "type": "inject",
+      "z": "24af349bfbcbd7fb",
+      "name": "On start",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "onceDelay": "1",
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "x": 220,
+      "y": 1440,
+      "wires": [
+          [
+              "2dd0eee8f7b1a470"
+          ]
+      ]
+  },
+  {
+      "id": "2dd0eee8f7b1a470",
+      "type": "function",
+      "z": "24af349bfbcbd7fb",
+      "name": "Attach participants names",
+      "func": "const participants = global.get(\"participants\");\nconst reminders = global.get(\"reminders\");\nif (!reminders) {\n    return {\n        payload: [],\n    };\n}\n\nreturn {\n    payload: reminders.map(({type, date, participantId}) => ({\n        type,\n        name: participants[participantId]?.name,\n        date,\n    })),\n};",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 500,
+      "y": 1440,
+      "wires": [
+          [
+              "d7810cf6a2aee894"
+          ]
+      ]
+  },
+  {
+      "id": "5208eb13f16601c2",
+      "type": "link in",
+      "z": "24af349bfbcbd7fb",
+      "name": "Refresh reminders view",
+      "links": [
+          "8dc09c7f52ac62a8",
+          "70ae3bdde864bc33"
+      ],
+      "x": 255,
+      "y": 1480,
+      "wires": [
+          [
+              "2dd0eee8f7b1a470"
+          ]
+      ]
+  },
+  {
+      "id": "070a1e31e39ad72e",
+      "type": "credentials",
+      "z": "24af349bfbcbd7fb",
+      "name": "Sveve credentials",
+      "props": [
+          {
+              "value": "user",
+              "type": "msg"
+          },
+          {
+              "value": "passwd",
+              "type": "msg"
+          }
+      ],
+      "x": 430,
+      "y": 140,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "7d527e50214b9c30",
+      "type": "http in",
+      "z": "4c1a60e9c90cb241",
+      "name": "",
+      "url": "/participants/:id",
+      "method": "get",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 240,
+      "y": 220,
+      "wires": [
+          [
+              "2547cfaab9e01402"
+          ]
+      ]
+  },
+  {
+      "id": "2547cfaab9e01402",
+      "type": "function",
+      "z": "4c1a60e9c90cb241",
+      "name": "getParticipant",
+      "func": "const participants = global.get(\"participants\");\nconst id = msg.req.params.id;\nconst participant = participants[id];\nif (!participant){\n    return {\n        ...msg,\n        statusCode: 404,\n        payload: {\n            error: \"not found\"\n        },\n    };\n}\n\nreturn {\n    ...msg,\n    statusCode: 200,\n    payload: {\n        id,\n        ...participant,\n    }\n}",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 560,
+      "y": 220,
+      "wires": [
+          [
+              "27e5669105934147"
+          ]
+      ]
+  },
+  {
+      "id": "27e5669105934147",
+      "type": "http response",
+      "z": "4c1a60e9c90cb241",
+      "name": "",
+      "statusCode": "",
+      "headers": {},
+      "x": 1250,
+      "y": 220,
+      "wires": []
+  },
+  {
+      "id": "47fb93ae06150301",
+      "type": "http in",
+      "z": "4c1a60e9c90cb241",
+      "name": "",
+      "url": "/participants/:id/activity",
+      "method": "post",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 260,
+      "y": 260,
+      "wires": [
+          [
+              "1b50a335b2070db0"
+          ]
+      ]
+  },
+  {
+      "id": "1b50a335b2070db0",
+      "type": "function",
+      "z": "4c1a60e9c90cb241",
+      "name": "getParticipant",
+      "func": "const participants = global.get(\"participants\");\nconst id = msg.req.params.id;\nconst participant = participants[id];\nif (!participant){\n    return {\n        ...msg,\n        statusCode: 404,\n        payload: {\n            error: \"not found\"\n        },\n    };\n}\n\nreturn {\n    ...msg,\n    statusCode: 200,\n    payload: {\n        id,\n        ...participant,\n    }\n};",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 560,
+      "y": 260,
+      "wires": [
+          [
+              "b7749c7502fb2488"
+          ]
+      ]
+  },
+  {
+      "id": "b7749c7502fb2488",
+      "type": "function",
+      "z": "4c1a60e9c90cb241",
+      "name": "updateActivityAndReminders",
+      "func": "if (msg.statusCode !== 200) {\n    return msg;\n}\n\nconst participants = global.get(\"participants\");\nconst id = msg.payload.id;\nconst participant = participants[id];\nconst now = new Date();\nif (!participant.firstUpdate) {\n    participant.firstUpdate = now;\n    \n    const reminders = global.get(\"reminders\");\n    const inTwoDays = new Date(now);\n    inTwoDays.setDate(inTwoDays.getDate() + 2);\n    var reminderId = reminders\n        .map(({reminderId}) => reminderId)\n        .reduce((max, current) => (current > max ? current : max), 0)\n        + 1;\n    reminders.push({\n        reminderId,\n        participantId: id,\n        type: \"first\",\n        date: inTwoDays,\n    });\n}\nparticipant.lastUpdate = now;\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 840,
+      "y": 260,
+      "wires": [
+          [
+              "27e5669105934147",
+              "8dc09c7f52ac62a8"
+          ]
+      ]
+  },
+  {
+      "id": "63f6c7062a1a14f1",
+      "type": "http in",
+      "z": "4c1a60e9c90cb241",
+      "name": "",
+      "url": "/participants/:id/reminder/:type/:date",
+      "method": "post",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 300,
+      "y": 300,
+      "wires": [
+          [
+              "1bddee62b3d4b6d2"
+          ]
+      ]
+  },
+  {
+      "id": "1bddee62b3d4b6d2",
+      "type": "function",
+      "z": "4c1a60e9c90cb241",
+      "name": "getParticipant",
+      "func": "const participants = global.get(\"participants\");\nconst id = msg.req.params.id;\nconst participant = participants[id];\nif (!participant){\n    return {\n        ...msg,\n        statusCode: 404,\n        payload: {\n            error: \"not found\"\n        },\n    };\n}\n\nreturn {\n    ...msg,\n    statusCode: 200,\n    payload: {\n        id,\n        ...participant,\n    }\n}",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 560,
+      "y": 300,
+      "wires": [
+          [
+              "81a44a69937f3d82"
+          ]
+      ]
+  },
+  {
+      "id": "81a44a69937f3d82",
+      "type": "function",
+      "z": "4c1a60e9c90cb241",
+      "name": "setupReminder",
+      "func": "if (msg.statusCode !== 200) {\n    return msg;\n}\n\nconst type = msg.req.params.type;\nif (type !== \"worksession\") {\n    return {\n        ...msg,\n        statusCode: 404,\n        payload: {\n            error: \"unknown reminder type\"\n        },\n    };\n}\n\nconst date = new Date(msg.req.params.date);\nif (Number.isNaN(date.getTime())) {\n    return {\n        ...msg,\n        statusCode: 400,\n        payload: {\n            error: \"Invalid date\"\n        },\n    };\n}\n\nconst reminders = global.get(\"reminders\");\n\nvar reminderId = reminders\n        .map(({reminderId}) => reminderId)\n        .reduce((max, current) => (current > max ? current : max), 0)\n        + 1;\n\nreminders.push({\n    reminderId,\n    participantId: msg.payload.id,\n    type,\n    date,\n});\n\n\nreturn {\n    ...msg,\n    payload: '',\n    statusCode: 201\n};",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 800,
+      "y": 300,
+      "wires": [
+          [
+              "27e5669105934147",
+              "8dc09c7f52ac62a8"
+          ]
+      ]
+  },
+  {
+      "id": "8dc09c7f52ac62a8",
+      "type": "link out",
+      "z": "4c1a60e9c90cb241",
+      "name": "",
+      "mode": "link",
+      "links": [
+          "5208eb13f16601c2"
+      ],
+      "x": 1125,
+      "y": 320,
+      "wires": []
+  },
+  {
+      "id": "8673279f98b492f3",
+      "type": "inject",
+      "z": "4658c0bf518b5f71",
+      "name": "On start",
+      "props": [
+          {
+              "p": "payload"
+          },
+          {
+              "p": "topic",
+              "vt": "str"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payload": "",
+      "payloadType": "date",
+      "x": 120,
+      "y": 120,
+      "wires": [
+          [
+              "7e781426ba97e984"
+          ]
+      ]
+  },
+  {
+      "id": "7e781426ba97e984",
+      "type": "switch",
+      "z": "4658c0bf518b5f71",
+      "name": "Check reminders is set",
+      "property": "reminders",
+      "propertyType": "global",
+      "rules": [
+          {
+              "t": "istype",
+              "v": "array",
+              "vt": "array"
+          },
+          {
+              "t": "else"
+          }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 320,
+      "y": 120,
+      "wires": [
+          [],
+          [
+              "fbfc6b9584c8f8c4"
+          ]
+      ]
+  },
+  {
+      "id": "fbfc6b9584c8f8c4",
+      "type": "change",
+      "z": "4658c0bf518b5f71",
+      "name": "Set empty reminders list by default",
+      "rules": [
+          {
+              "t": "set",
+              "p": "reminders",
+              "pt": "global",
+              "to": "[]",
+              "tot": "json"
+          }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 620,
+      "y": 120,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "65331d1738541636",
+      "type": "link in",
+      "z": "4658c0bf518b5f71",
+      "name": "Remove participant's reminders",
+      "links": [
+          "103b544bea59169b"
+      ],
+      "x": 295,
+      "y": 300,
+      "wires": [
+          [
+              "c1c6c7ca05f13603"
+          ]
+      ]
+  },
+  {
+      "id": "c1c6c7ca05f13603",
+      "type": "function",
+      "z": "4658c0bf518b5f71",
+      "name": "Remove participant's reminders",
+      "func": "const id = msg.id;\nif (!id) {\n    node.error(\"Missing id\");\n    return msg;\n}\nlet reminders = global.get(\"reminders\");\nreminders = reminders.filter(({participantId}) => participantId !== id);\nglobal.set(\"reminders\", reminders);\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 460,
+      "y": 300,
+      "wires": [
+          [
+              "70ae3bdde864bc33"
+          ]
+      ]
+  },
+  {
+      "id": "6195d5247cdf69c7",
+      "type": "inject",
+      "z": "4658c0bf518b5f71",
+      "name": "Load reminders every second minute",
+      "props": [
+          {
+              "p": "payload"
+          }
+      ],
+      "repeat": "120",
+      "crontab": "",
+      "once": true,
+      "onceDelay": "120",
+      "topic": "",
+      "payload": "reminders",
+      "payloadType": "global",
+      "x": 250,
+      "y": 540,
+      "wires": [
+          [
+              "856d9d423a795c5e"
+          ]
+      ]
+  },
+  {
+      "id": "856d9d423a795c5e",
+      "type": "function",
+      "z": "4658c0bf518b5f71",
+      "name": "Filter reminders to be sent",
+      "func": "const now = new Date();\nnow.setDate(now.getDate()+2);\n\nconst reminders = msg.payload;\nreturn [\n    reminders.filter((reminder) => {\n        const date = new Date(reminder.date);\n        return date <= now;\n    }).map((reminder) => ({payload: reminder}))];",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 580,
+      "y": 540,
+      "wires": [
+          [
+              "ae825aee15b150fc"
+          ]
+      ]
+  },
+  {
+      "id": "9c4a39ca8a2a3aa0",
+      "type": "debug",
+      "z": "4658c0bf518b5f71",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "true",
+      "targetType": "full",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 1130,
+      "y": 660,
+      "wires": []
+  },
+  {
+      "id": "ae825aee15b150fc",
+      "type": "function",
+      "z": "4658c0bf518b5f71",
+      "name": "Load participant name and phone number",
+      "func": "const participants = global.get(\"participants\");\n\nconst reminder = msg.payload;\nconst id = reminder.participantId;\nconst participant = participants[id];\nif (!participant) {\n    node.error(\"Participant not found\");\n    return [];\n}\n\nconst topic = \"n\";\nconst link = `http://my-student-counsellor.sintef.cloud/#${id}.${topic}`;\n\nreturn {\n    to: participant.phoneNumber,\n    link,\n    type: reminder.type,\n    reminderId: reminder.reminderId,\n    id,\n    name: participant.name,\n};",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 910,
+      "y": 540,
+      "wires": [
+          [
+              "e5a6b956fa33bd77"
+          ]
+      ]
+  },
+  {
+      "id": "29b07e8622038b0a",
+      "type": "template",
+      "z": "4658c0bf518b5f71",
+      "name": "Message for first work session",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Hei {{name}}, it's time to work NOW!",
+      "output": "str",
+      "x": 490,
+      "y": 680,
+      "wires": [
+          [
+              "6d6ab0fd089725f1"
+          ]
+      ]
+  },
+  {
+      "id": "6d6ab0fd089725f1",
+      "type": "function",
+      "z": "4658c0bf518b5f71",
+      "name": "Append link",
+      "func": "msg.payload = msg.payload + \"\\n\\n\" + msg.link;\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 770,
+      "y": 660,
+      "wires": [
+          [
+              "8d95aaa4ef88f1f8"
+          ]
+      ]
+  },
+  {
+      "id": "6246c918df261e02",
+      "type": "link call",
+      "z": "4658c0bf518b5f71",
+      "name": "Send SMS",
+      "links": [
+          "7a50c2de2a218589"
+      ],
+      "timeout": "100",
+      "x": 170,
+      "y": 800,
+      "wires": [
+          [
+              "eee6a30bb739ccea"
+          ]
+      ]
+  },
+  {
+      "id": "eee6a30bb739ccea",
+      "type": "function",
+      "z": "4658c0bf518b5f71",
+      "name": "Remove reminder",
+      "func": "const { reminderId } = msg;\nif (!reminderId) {\n    node.error(\"No reminderId\");\n    return [];\n}\nconst reminders = global.get(\"reminders\");\nreminders.splice(reminders.findIndex(element => element.reminderId === reminderId), 1);\nglobal.set(\"reminders\", reminders); // perhaps not necessary\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 370,
+      "y": 800,
+      "wires": [
+          [
+              "8c1a44bbb85bcb46"
+          ]
+      ]
+  },
+  {
+      "id": "d562abe2ecc47d2f",
+      "type": "comment",
+      "z": "4658c0bf518b5f71",
+      "name": "Initialisation",
+      "info": "",
+      "x": 110,
+      "y": 80,
+      "wires": []
+  },
+  {
+      "id": "15af45492d2443ad",
+      "type": "comment",
+      "z": "4658c0bf518b5f71",
+      "name": "Called from the UI to remove reminders of removed participants",
+      "info": "",
+      "x": 510,
+      "y": 240,
+      "wires": []
+  },
+  {
+      "id": "17ae4164fce4d025",
+      "type": "comment",
+      "z": "4658c0bf518b5f71",
+      "name": "Periodic background flow to remind participants",
+      "info": "",
+      "x": 260,
+      "y": 500,
+      "wires": []
+  },
+  {
+      "id": "e5a6b956fa33bd77",
+      "type": "switch",
+      "z": "4658c0bf518b5f71",
+      "name": "",
+      "property": "type",
+      "propertyType": "msg",
+      "rules": [
+          {
+              "t": "eq",
+              "v": "first",
+              "vt": "str"
+          },
+          {
+              "t": "eq",
+              "v": "worksession",
+              "vt": "str"
+          }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 150,
+      "y": 640,
+      "wires": [
+          [
+              "7dbd8da839bd7157"
+          ],
+          [
+              "29b07e8622038b0a"
+          ]
+      ]
+  },
+  {
+      "id": "7dbd8da839bd7157",
+      "type": "template",
+      "z": "4658c0bf518b5f71",
+      "name": "Message after 2 days",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Hei {{name}}, we talked 2 days ago and it's time to talk AGAIN!",
+      "output": "str",
+      "x": 460,
+      "y": 640,
+      "wires": [
+          [
+              "6d6ab0fd089725f1"
+          ]
+      ]
+  },
+  {
+      "id": "8d95aaa4ef88f1f8",
+      "type": "switch",
+      "z": "4658c0bf518b5f71",
+      "name": "Dev Switch",
+      "property": "canard",
+      "propertyType": "msg",
+      "rules": [
+          {
+              "t": "true"
+          },
+          {
+              "t": "else"
+          }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 950,
+      "y": 660,
+      "wires": [
+          [
+              "6246c918df261e02"
+          ],
+          [
+              "9c4a39ca8a2a3aa0"
+          ]
+      ]
+  },
+  {
+      "id": "70ae3bdde864bc33",
+      "type": "link out",
+      "z": "4658c0bf518b5f71",
+      "name": "",
+      "mode": "link",
+      "links": [
+          "5208eb13f16601c2"
+      ],
+      "x": 665,
+      "y": 320,
+      "wires": []
+  },
+  {
+      "id": "8ffc235c57bfb835",
+      "type": "link out",
+      "z": "4658c0bf518b5f71",
+      "name": "",
+      "mode": "link",
+      "links": [],
+      "x": 285,
+      "y": 920,
+      "wires": []
+  },
+  {
+      "id": "8c1a44bbb85bcb46",
+      "type": "delay",
+      "z": "4658c0bf518b5f71",
+      "name": "",
+      "pauseType": "rate",
+      "timeout": "5",
+      "timeoutUnits": "seconds",
+      "rate": "5",
+      "nbRateUnits": "1",
+      "rateUnits": "second",
+      "randomFirst": "1",
+      "randomLast": "5",
+      "randomUnits": "seconds",
+      "drop": true,
+      "allowrate": false,
+      "outputs": 1,
+      "x": 170,
+      "y": 920,
+      "wires": [
+          [
+              "8ffc235c57bfb835"
+          ]
+      ]
+  },
+  {
+      "id": "415123736e1033f6",
+      "type": "comment",
+      "z": "4658c0bf518b5f71",
+      "name": "Refresh the UI",
+      "info": "",
+      "x": 190,
+      "y": 880,
+      "wires": []
+  },
+  {
+      "id": "070a1e31e39ad72e",
+      "type": "credentials",
+      "z": "fb3bc12be66bc57d",
+      "name": "Sveve credentials",
+      "props": [
+          {
+              "value": "user",
+              "type": "msg"
+          },
+          {
+              "value": "passwd",
+              "type": "msg"
+          }
+      ],
+      "x": 430,
+      "y": 140,
+      "wires": [
+          [
+              "0e152e10ad8b68ac"
+          ]
+      ]
+  },
+  {
+      "id": "7a50c2de2a218589",
+      "type": "link in",
+      "z": "fb3bc12be66bc57d",
+      "name": "Send SMS",
+      "links": [],
+      "x": 115,
+      "y": 140,
+      "wires": [
+          [
+              "5edbb152413d5fa5"
+          ]
+      ]
+  },
+  {
+      "id": "5edbb152413d5fa5",
+      "type": "function",
+      "z": "fb3bc12be66bc57d",
+      "name": "Check data",
+      "func": "if (!msg.to || !msg.payload) {\n    node.error(\"Wrong input data\");\n    return [];\n}\n\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 230,
+      "y": 140,
+      "wires": [
+          [
+              "070a1e31e39ad72e"
+          ]
+      ],
+      "icon": "font-awesome/fa-check-square-o"
+  },
+  {
+      "id": "0e152e10ad8b68ac",
+      "type": "change",
+      "z": "fb3bc12be66bc57d",
+      "name": "Set SMS request body",
+      "rules": [
+          {
+              "t": "set",
+              "p": "from",
+              "pt": "msg",
+              "to": "MSC",
+              "tot": "str"
+          },
+          {
+              "t": "set",
+              "p": "payload",
+              "pt": "msg",
+              "to": "{\t    \"user\": user,\t    \"passwd\": passwd,\t    \"msg\": payload,\t    \"to\": to,\t    \"from\": from,\t    \"f\": \"json\"\t}",
+              "tot": "jsonata"
+          },
+          {
+              "t": "delete",
+              "p": "to",
+              "pt": "msg"
+          },
+          {
+              "t": "delete",
+              "p": "user",
+              "pt": "msg"
+          },
+          {
+              "t": "delete",
+              "p": "passwd",
+              "pt": "msg"
+          },
+          {
+              "t": "delete",
+              "p": "from",
+              "pt": "msg"
+          }
+      ],
+      "action": "",
+      "property": "",
+      "from": "",
+      "to": "",
+      "reg": false,
+      "x": 660,
+      "y": 140,
+      "wires": [
+          [
+              "927bae4efb249928"
+          ]
+      ]
+  },
+  {
+      "id": "927bae4efb249928",
+      "type": "http request",
+      "z": "fb3bc12be66bc57d",
+      "name": "",
+      "method": "POST",
+      "ret": "bin",
+      "paytoqs": "ignore",
+      "url": "https://sveve.no/SMS/SendMessage",
+      "tls": "",
+      "persist": true,
+      "proxy": "",
+      "authType": "",
+      "senderr": false,
+      "x": 870,
+      "y": 140,
+      "wires": [
+          [
+              "6550c05fede920fc",
+              "f2b7c26201b7265e",
+              "64bbe5cb3571b0e2"
+          ]
+      ]
+  },
+  {
+      "id": "6550c05fede920fc",
+      "type": "debug",
+      "z": "fb3bc12be66bc57d",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": true,
+      "tostatus": false,
+      "complete": "true",
+      "targetType": "full",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 1030,
+      "y": 200,
+      "wires": []
+  },
+  {
+      "id": "f2b7c26201b7265e",
+      "type": "file",
+      "z": "fb3bc12be66bc57d",
+      "name": "Write to SMS log",
+      "filename": "sveve-sms.log",
+      "appendNewline": true,
+      "createDir": false,
+      "overwriteFile": "false",
+      "encoding": "none",
+      "x": 1070,
+      "y": 120,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "64bbe5cb3571b0e2",
+      "type": "link out",
+      "z": "fb3bc12be66bc57d",
+      "name": "",
+      "mode": "return",
+      "links": [],
+      "x": 995,
+      "y": 160,
+      "wires": []
+  }
+]

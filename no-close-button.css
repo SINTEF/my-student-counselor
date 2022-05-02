@@ -1,0 +1,4 @@
+/* Put this in <botpress_dir>/data/assets/modules/channel-web/no-close-button.css */
+#btn-close {
+        display: none;
+}       
