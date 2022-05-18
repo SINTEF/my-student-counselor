@@ -33,7 +33,7 @@
         let text
 
         // First message ever
-        if (!firstUpdate || event.state.session.lastMessages.length === 0) {
+        if (!firstUpdate) {
           text = `Hei ${name} welcome to My Student Counselor.`
         } else {
           // Do nothing if the last message was less than one hour ago
