@@ -1,4 +1,63 @@
 /* Put this in <botpress_dir>/data/assets/modules/channel-web/no-close-button.css */
 #btn-close {
-        display: none;
-}       
+  display: none;
+}
+
+.bpw-header-container {
+  background: #483a54;
+  color: white;
+}
+
+.bpw-bot-avatar img {
+  border-color: #e89277;
+  margin-top: 3px;
+}
+
+.bpw-header-name {
+  color: #b1d6bd;
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+.bpw-header-container button {
+  filter: invert(1);
+}
+
+.bpw-chat-bubble .bpw-chat-bubble-content {
+  border-radius: 0.5rem;
+}
+
+.bpw-from-bot .bpw-chat-bubble .bpw-chat-bubble-content {
+  background: #fff3e8;
+  border-color: #ffeee0;
+}
+
+.bpw-from-user .bpw-chat-bubble .bpw-chat-bubble-content {
+  background: #483a54;
+  ;
+}
+
+.bpw-msg-list .bpw-bot-avatar {
+  position: relative;
+  top: 5px;
+}
+
+.bpw-msg-list .bpw-date-container {
+  color: #999;
+}
+
+.bpw-msg-list .bpw-date-container .bpw-small-line {
+  display: none;
+}
+
+.bpw-keyboard-quick_reply .bpw-button {
+  border-radius: 2em;
+  background: #e97c5c;
+  color: white;
+  padding: 0.5em 1.5em;
+  margin-right: 0.5em;
+}
+
+.bpw-composer {
+  border-top-color: #ddd;
+}
