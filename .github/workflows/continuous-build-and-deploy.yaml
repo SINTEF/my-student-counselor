@@ -54,10 +54,15 @@ jobs:
       - name: Patch version
         run: |
           yq --inplace '.image.tag |= "sha-'$(git rev-parse --short $GITHUB_SHA)'"' deployments/my-student-counselor/image-tag.yaml
+      - name: Configure Machine Acount for Git
+        run: |
+          echo "${{ secrets.GITOPS_PGP_PRIVATE_KEY }}" | gpg --import
+          git config user.name "SINTEF SCT CI Machine Account"
+          git config user.email "114478573+sintef-sct-ci-machine-account@users.noreply.github.com"
+          git config user.signingkey 5B8E5797C606300A
+          git config commit.gpgsign true
       - name: Commit and push
         run: |
-          git config user.email "gitops@sintef.cloud"
-          git config user.name "GitOps"
-          git commit -am "GitOps update for my-student-counselor"
+          git commit -S -am "GitOps update $(git rev-parse --short $GITHUB_SHA) for my-student-counselor"
           git pull --rebase
           git push

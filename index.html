@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Student Counselor - SINTEF</title>
 </head>
+
 <body>
   <h1 id="loading">Loading…</h1>
   <script src="https://botpress.sintef.cloud/assets/modules/channel-web/inject.js"></script>
   <script type="text/javascript">
-    // Load the userId from the hash fragment
-    // Format is #{userId}.{flow}
-    const hash = window.location.hash;
-    const match = hash.match(/^#([^.]+)\.?([^.]*)$/);
-    const userId = match && match[1];
-    const flow = match && match[2];
+    (function () {
+      // Load the userId from the hash fragment
+      // Format is #{userId}.{flow}
+      const hash = window.location.hash;
+      const match = hash.match(/^#([^.]+)\.?([^.]*)$/);
 
-    if (!userId) {
-      document.getElementById('loading').innerText = 'No userId found. Please use the link you should have received.';
-    } else {
+      const userId = (match && match[1]) ? match[1] : window.localStorage.getItem('userId');
+      const flow = (match && match[2]) ? match[2] : 'none';
+
+
+      if (!userId) {
+        document.getElementById('loading').innerText = 'No userId found. Please use the link you should have received.';
+        return;
+      }
+
+      window.localStorage.setItem('userId', userId);
+      window.location.hash = '';
+
       window.botpressWebChat.init({
         host: "https://botpress.sintef.cloud",
         botId: "marita",
@@ -29,7 +39,7 @@
         containerWidth: "100%",
         layoutWidth: "100%",
         disableAnimations: true,
-        extraStylesheet: "/assets/modules/channel-web/no-close-button.css",
+        extraStylesheet: "/assets/modules/channel-web/my-student-counselor.css",
         userId,
       });
 
@@ -51,7 +61,7 @@
           });
         }
       });
-    }
+    })();
   </script>
   <style type="text/css">
     #loading {
@@ -69,5 +79,5 @@
       font-family: sans-serif;
       color: #000;
     }
-</body>
-</html>
+
+    </body></html>
