@@ -175,7 +175,7 @@
   {
       "id": "d3f39f56a11c75bf",
       "type": "ui_tab",
-      "name": "My Student Councellor Dashboard",
+      "name": "My Student Counselor Dashboard",
       "icon": "dashboard",
       "disabled": false,
       "hidden": false
@@ -344,7 +344,7 @@
       "type": "function",
       "z": "24af349bfbcbd7fb",
       "name": "Load participants for list",
-      "func": "const participants = global.get(\"participants\");\n\nconst now = new Date();\nfunction formatActivity(participant) {\n    const { lastUpdate } = participant;\n    if (!lastUpdate) {\n        return \"no activity yet\";\n    }\n    const date = new Date(lastUpdate);\n    let diff = now-date;\n    const prettyDiff = prettyMs(diff, { compact: true});\n    \n    const prettyTime = date.toLocaleString('no-NB', {\n      timeZone: 'Europe/Oslo',\n      year: 'numeric',\n      month: '2-digit',\n      day: '2-digit',\n      hour: '2-digit',\n      minute: '2-digit',\n    });\n    \n    return `${prettyDiff} ago - ${prettyTime}`;\n}\n\nreturn {\n    payload: [...Object.entries(participants)].map(([id, participant]) => ({\n        id,\n        ...participant,\n        title: `${participant.name} - ${participant.phoneNumber}`,\n        description: formatActivity(participant),\n        menu: [\"SMS\", \"Delete\"]\n    })),\n};",
+      "func": "const participants = global.get(\"participants\");\n\nconst now = new Date();\nfunction formatActivity(participant) {\n    const { lastUpdate, dagligeTriggered } = participant;\n    if (!lastUpdate) {\n        return \"no activity yet\";\n    }\n    const date = new Date(lastUpdate);\n    let diff = now.getTime()-date.getTime();\n    const prettyDiff = prettyMs(diff, { compact: true});\n    \n    const prettyTime = date.toLocaleString('no-NB', {\n      timeZone: 'Europe/Oslo',\n      year: 'numeric',\n      month: '2-digit',\n      day: '2-digit',\n      hour: '2-digit',\n      minute: '2-digit',\n    });\n    \n    return `${prettyDiff} ago - ${prettyTime} - ${dagligeTriggered ?? 0}`;\n}\n\nreturn {\n    payload: [...Object.entries(participants)].map(([id, participant]) => ({\n        id,\n        ...participant,\n        title: `${participant.name} - ${participant.phoneNumber}`,\n        description: formatActivity(participant),\n        menu: [\"SMS\", \"Delete\"]\n    })),\n};",
       "outputs": 1,
       "noerr": 0,
       "initialize": "",
@@ -368,7 +368,7 @@
       "type": "function",
       "z": "24af349bfbcbd7fb",
       "name": "Register participant",
-      "func": "const participants = global.get(\"participants\");\n\nconst {name, phoneNumber} = msg.payload;\n\nfunction find(it, callback) {\n    for (const value of it) {\n        if (callback(value)) {\n            return value;\n        }\n    }\n}\n\nconst duplicate = find(Object.values(participants), (participant) => participant.phoneNumber === phoneNumber);\n\nif (duplicate) {\n    return [undefined,{\n        payload: `A participant \"${duplicate.name}\" already exists with the same phone number`,\n    }];\n}\n\nconst {id} = msg;\nconst participant = {id, name, phoneNumber};\nparticipants[id] = participant;\n\nreturn [{\n    payload: participant,\n}];",
+      "func": "const participants = global.get(\"participants\");\n\nconst {name, phoneNumber} = msg.payload;\n\nfunction find(it, callback) {\n    for (const value of it) {\n        if (callback(value)) {\n            return value;\n        }\n    }\n}\n\nconst duplicate = find(Object.values(participants), (participant) => participant.phoneNumber === phoneNumber);\n\nif (duplicate) {\n    return [undefined,{\n        payload: `A participant \"${duplicate.name}\" already exists with the same phone number`,\n    }];\n}\n\nconst {id} = msg;\nconst participant = { id, name, phoneNumber, dagligeTriggered: 0 };\nparticipants[id] = participant;\n\nreturn [{\n    payload: participant,\n}];",
       "outputs": 2,
       "noerr": 0,
       "initialize": "",
@@ -947,7 +947,7 @@
       "type": "function",
       "z": "24af349bfbcbd7fb",
       "name": "Set form message",
-      "func": "const id = flow.get(\"selectedParticipant\").id;\n\nif (!id) {\n    return [];\n}\n\nconst topic = msg.topic;\nconst link = `http://my-student-counsellor.sintef.cloud/#${id}.${topic}`;\n\nconst isInvite = topic === 'i';\n\nconst noAnswerMessage = 'I cannot reply to this SMS. Please use the link :-)';\n\nreturn {\n    payload: {\n        message: `\\n${msg.payload}${isInvite ? ' ' : '\\n\\n'}${link}\\n${noAnswerMessage}`,\n    },\n};",
+      "func": "const id = flow.get(\"selectedParticipant\").id;\n\nif (!id) {\n    return [];\n}\n\nconst topic = msg.topic;\nconst link = `https://my-student-counselor.sintef.cloud/#${id}.${topic}`;\n\nconst isInvite = topic === 'i';\n\nconst noAnswerMessage = 'I cannot reply to this SMS. Please use the link :-)';\n\nreturn {\n    payload: {\n        message: `\\n${msg.payload}${isInvite ? ' ' : '\\n\\n'}${link}\\n${noAnswerMessage}`,\n    },\n};",
       "outputs": 1,
       "noerr": 0,
       "initialize": "",
@@ -1749,27 +1749,6 @@
       ]
   },
   {
-      "id": "070a1e31e39ad72e",
-      "type": "credentials",
-      "z": "24af349bfbcbd7fb",
-      "name": "Sveve credentials",
-      "props": [
-          {
-              "value": "user",
-              "type": "msg"
-          },
-          {
-              "value": "passwd",
-              "type": "msg"
-          }
-      ],
-      "x": 430,
-      "y": 140,
-      "wires": [
-          []
-      ]
-  },
-  {
       "id": "7d527e50214b9c30",
       "type": "http in",
       "z": "4c1a60e9c90cb241",
@@ -1778,7 +1757,7 @@
       "method": "get",
       "upload": false,
       "swaggerDoc": "",
-      "x": 240,
+      "x": 190,
       "y": 220,
       "wires": [
           [
@@ -1825,7 +1804,7 @@
       "method": "post",
       "upload": false,
       "swaggerDoc": "",
-      "x": 260,
+      "x": 220,
       "y": 260,
       "wires": [
           [
@@ -1857,7 +1836,7 @@
       "type": "function",
       "z": "4c1a60e9c90cb241",
       "name": "updateActivityAndReminders",
-      "func": "if (msg.statusCode !== 200) {\n    return msg;\n}\n\nconst participants = global.get(\"participants\");\nconst id = msg.payload.id;\nconst participant = participants[id];\nconst now = new Date();\nif (!participant.firstUpdate) {\n    participant.firstUpdate = now;\n    \n    const reminders = global.get(\"reminders\");\n    const inTwoDays = new Date(now);\n    inTwoDays.setDate(inTwoDays.getDate() + 2);\n    var reminderId = reminders\n        .map(({reminderId}) => reminderId)\n        .reduce((max, current) => (current > max ? current : max), 0)\n        + 1;\n    reminders.push({\n        reminderId,\n        participantId: id,\n        type: \"first\",\n        date: inTwoDays,\n    });\n}\nparticipant.lastUpdate = now;\nreturn msg;",
+      "func": "if (msg.statusCode !== 200) {\n    return msg;\n}\n\nconst participants = global.get(\"participants\");\nconst reminders = global.get(\"reminders\");\n\nconst id = msg.payload.id;\nconst participant = participants[id];\nconst now = new Date();\n\nif (!participant.firstUpdate) {\n    participant.firstUpdate = now;\n\n    const inTwoDays = new Date(now);\n    inTwoDays.setDate(inTwoDays.getDate() + 2);\n    const reminderId = reminders\n        .map(({ reminderId }) => reminderId)\n        .reduce((max, current) => (current > max ? current : max), 0)\n        + 1;\n    reminders.push({\n        reminderId,\n        participantId: id,\n        type: \"Modul_praktiskinfo_del_2\",\n        date: inTwoDays,\n    });\n}\n\n// Find the reminder with type \"inactive\"\nconst inactiveReminder = reminders.find(\n    ({ participantId, type }) => participantId === id && type === \"inactive\"\n);\n\nconst in7days = new Date(now);\nin7days.setDate(in7days.getDate() + 7);\n\nif (inactiveReminder) {\n    inactiveReminder.date = in7days;\n} else {\n    const reminderId = reminders\n        .map(({ reminderId }) => reminderId)\n        .reduce((max, current) => (current > max ? current : max), 0)\n        + 1;\n    reminders.push({\n        reminderId: reminderId,\n        participantId: id,\n        type: \"inactive\",\n        date: in7days,\n    });\n}\n\nparticipant.lastUpdate = now;\nreturn msg;",
       "outputs": 1,
       "noerr": 0,
       "initialize": "",
@@ -1881,7 +1860,7 @@
       "method": "post",
       "upload": false,
       "swaggerDoc": "",
-      "x": 300,
+      "x": 260,
       "y": 300,
       "wires": [
           [
@@ -1937,9 +1916,121 @@
       "links": [
           "5208eb13f16601c2"
       ],
-      "x": 1125,
-      "y": 320,
+      "x": 1215,
+      "y": 260,
       "wires": []
+  },
+  {
+      "id": "605aa9aead94b064",
+      "type": "http in",
+      "z": "4c1a60e9c90cb241",
+      "name": "",
+      "url": "/participants/:id/daglige-mal-triggered",
+      "method": "post",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 270,
+      "y": 340,
+      "wires": [
+          [
+              "71b1b6de650cc4fe"
+          ]
+      ]
+  },
+  {
+      "id": "71b1b6de650cc4fe",
+      "type": "function",
+      "z": "4c1a60e9c90cb241",
+      "name": "getParticipant",
+      "func": "const participants = global.get(\"participants\");\nconst id = msg.req.params.id;\nconst participant = participants[id];\nif (!participant){\n    return {\n        ...msg,\n        statusCode: 404,\n        payload: {\n            error: \"not found\"\n        },\n    };\n}\n\nreturn {\n    ...msg,\n    statusCode: 200,\n    payload: {\n        id,\n        ...participant,\n    }\n}",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 560,
+      "y": 340,
+      "wires": [
+          [
+              "2cfcc27f90936129"
+          ]
+      ]
+  },
+  {
+      "id": "2cfcc27f90936129",
+      "type": "function",
+      "z": "4c1a60e9c90cb241",
+      "name": "daglige mal triggered",
+      "func": "if (msg.statusCode !== 200) {\n    return msg;\n}\n\nconst type = \"worksession\";\nconst reminders = global.get(\"reminders\");\nconst date = new Date();\ndate.setHours(date.getHours() + 8);\n\nvar reminderId = reminders\n    .map(({ reminderId }) => reminderId)\n    .reduce((max, current) => (current > max ? current : max), 0)\n    + 1;\n\nreminders.push({\n    reminderId,\n    participantId: msg.payload.id,\n    type,\n    date,\n});\n\nconst participants = global.get(\"participants\");\nconst id = msg.payload.id;\nconst participant = participants[id];\nparticipant.dagligeTriggered = (participant.dagligeTriggered ?? 0) + 1;\n\nreturn {\n    ...msg,\n    payload: '',\n    statusCode: 201\n};",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 820,
+      "y": 340,
+      "wires": [
+          [
+              "8dc09c7f52ac62a8",
+              "27e5669105934147"
+          ]
+      ]
+  },
+  {
+      "id": "fb91de0c1921c879",
+      "type": "http in",
+      "z": "4c1a60e9c90cb241",
+      "name": "",
+      "url": "/participants/:id/reminder/:type",
+      "method": "delete",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 250,
+      "y": 380,
+      "wires": [
+          [
+              "8d68bab895a2ff09"
+          ]
+      ]
+  },
+  {
+      "id": "8d68bab895a2ff09",
+      "type": "function",
+      "z": "4c1a60e9c90cb241",
+      "name": "getParticipant",
+      "func": "const participants = global.get(\"participants\");\nconst id = msg.req.params.id;\nconst participant = participants[id];\nif (!participant){\n    return {\n        ...msg,\n        statusCode: 404,\n        payload: {\n            error: \"not found\"\n        },\n    };\n}\n\nreturn {\n    ...msg,\n    statusCode: 200,\n    payload: {\n        id,\n        ...participant,\n    }\n}",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 560,
+      "y": 380,
+      "wires": [
+          [
+              "c6254f365a450927"
+          ]
+      ]
+  },
+  {
+      "id": "c6254f365a450927",
+      "type": "function",
+      "z": "4c1a60e9c90cb241",
+      "name": "deleteReminder",
+      "func": "if (msg.statusCode !== 200) {\n    return msg;\n}\n\nconst type = msg.req.params.type;\n\n\n\nconst reminders = global.get(\"reminders\");\n\nconst hasReminder = reminders.find((r) => r.type === type);\nif (!hasReminder) {\n    return {\n        ...msg,\n        statusCode: 404,\n        payload: {\n            error: \"unfound reminder type\"\n        },\n    };\n}\n\nconst filteredReminders = reminders.filter((r) => r.type !== type);\nglobal.set(\"reminders\", filteredReminders);\n\nreturn {\n    ...msg,\n    payload: '',\n    statusCode: 201\n};",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 800,
+      "y": 380,
+      "wires": [
+          [
+              "8dc09c7f52ac62a8",
+              "27e5669105934147"
+          ]
+      ]
   },
   {
       "id": "8673279f98b492f3",
@@ -2089,7 +2180,7 @@
       "type": "function",
       "z": "4658c0bf518b5f71",
       "name": "Filter reminders to be sent",
-      "func": "const now = new Date();\nnow.setDate(now.getDate()+2);\n\nconst reminders = msg.payload;\nreturn [\n    reminders.filter((reminder) => {\n        const date = new Date(reminder.date);\n        return date <= now;\n    }).map((reminder) => ({payload: reminder}))];",
+      "func": "const now = new Date();\n// DEBUG\n//now.setDate(now.getDate()+10);\n\nconst reminders = msg.payload;\nreturn [\n    reminders.filter((reminder) => {\n        const date = new Date(reminder.date);\n        return date <= now;\n    }).map((reminder) => ({payload: reminder}))];",
       "outputs": 1,
       "noerr": 0,
       "initialize": "",
@@ -2125,7 +2216,7 @@
       "type": "function",
       "z": "4658c0bf518b5f71",
       "name": "Load participant name and phone number",
-      "func": "const participants = global.get(\"participants\");\n\nconst reminder = msg.payload;\nconst id = reminder.participantId;\nconst participant = participants[id];\nif (!participant) {\n    node.error(\"Participant not found\");\n    return [];\n}\n\nconst topic = \"n\";\nconst link = `http://my-student-counsellor.sintef.cloud/#${id}.${topic}`;\n\nreturn {\n    to: participant.phoneNumber,\n    link,\n    type: reminder.type,\n    reminderId: reminder.reminderId,\n    id,\n    name: participant.name,\n};",
+      "func": "const participants = global.get(\"participants\");\n\nconst reminder = msg.payload;\nconst id = reminder.participantId;\nconst participant = participants[id];\nif (!participant) {\n    node.error(\"Participant not found\");\n    return [];\n}\n\nreturn {\n    to: participant.phoneNumber,\n    type: reminder.type,\n    reminderId: reminder.reminderId,\n    id,\n    name: participant.name,\n};",
       "outputs": 1,
       "noerr": 0,
       "initialize": "",
@@ -2143,33 +2234,14 @@
       "id": "29b07e8622038b0a",
       "type": "template",
       "z": "4658c0bf518b5f71",
-      "name": "Message for first work session",
+      "name": "Message for work session",
       "field": "payload",
       "fieldType": "msg",
       "format": "handlebars",
       "syntax": "mustache",
-      "template": "Hei {{name}}, it's time to work NOW!",
+      "template": "Hei {{name}}, it has been 8 hours!\n\nhttps://my-student-counselor.sintef.cloud/#{{id}}.f",
       "output": "str",
-      "x": 490,
-      "y": 680,
-      "wires": [
-          [
-              "6d6ab0fd089725f1"
-          ]
-      ]
-  },
-  {
-      "id": "6d6ab0fd089725f1",
-      "type": "function",
-      "z": "4658c0bf518b5f71",
-      "name": "Append link",
-      "func": "msg.payload = msg.payload + \"\\n\\n\" + msg.link;\nreturn msg;",
-      "outputs": 1,
-      "noerr": 0,
-      "initialize": "",
-      "finalize": "",
-      "libs": [],
-      "x": 770,
+      "x": 470,
       "y": 660,
       "wires": [
           [
@@ -2260,11 +2332,16 @@
               "t": "eq",
               "v": "worksession",
               "vt": "str"
+          },
+          {
+              "t": "eq",
+              "v": "inactive",
+              "vt": "str"
           }
       ],
       "checkall": "true",
       "repair": false,
-      "outputs": 2,
+      "outputs": 3,
       "x": 150,
       "y": 640,
       "wires": [
@@ -2273,6 +2350,9 @@
           ],
           [
               "29b07e8622038b0a"
+          ],
+          [
+              "057ae3378f8f4d8a"
           ]
       ]
   },
@@ -2285,13 +2365,13 @@
       "fieldType": "msg",
       "format": "handlebars",
       "syntax": "mustache",
-      "template": "Hei {{name}}, we talked 2 days ago and it's time to talk AGAIN!",
+      "template": "Hei {{name}},\n\nmer modul praktisk info:\nhttps://my-student-counselor.sintef.cloud/#{{id}}.m\n",
       "output": "str",
       "x": 460,
-      "y": 640,
+      "y": 620,
       "wires": [
           [
-              "6d6ab0fd089725f1"
+              "8d95aaa4ef88f1f8"
           ]
       ]
   },
@@ -2384,25 +2464,21 @@
       "wires": []
   },
   {
-      "id": "070a1e31e39ad72e",
-      "type": "credentials",
-      "z": "fb3bc12be66bc57d",
-      "name": "Sveve credentials",
-      "props": [
-          {
-              "value": "user",
-              "type": "msg"
-          },
-          {
-              "value": "passwd",
-              "type": "msg"
-          }
-      ],
-      "x": 430,
-      "y": 140,
+      "id": "057ae3378f8f4d8a",
+      "type": "template",
+      "z": "4658c0bf518b5f71",
+      "name": "Message inactive for 7 days!",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "handlebars",
+      "syntax": "mustache",
+      "template": "Hei {{name}}, you have been inactive for 7 days. Wanna talk about it?\n\nhttps://my-student-counselor.sintef.cloud/#{{id}}.u",
+      "output": "str",
+      "x": 480,
+      "y": 700,
       "wires": [
           [
-              "0e152e10ad8b68ac"
+              "8d95aaa4ef88f1f8"
           ]
       ]
   },
@@ -2435,7 +2511,7 @@
       "y": 140,
       "wires": [
           [
-              "070a1e31e39ad72e"
+              "33bedfc6b8fddfd5"
           ]
       ],
       "icon": "font-awesome/fa-check-square-o"
@@ -2561,5 +2637,28 @@
       "x": 995,
       "y": 160,
       "wires": []
+  },
+  {
+      "id": "33bedfc6b8fddfd5",
+      "type": "credentials",
+      "z": "fb3bc12be66bc57d",
+      "name": "Sveve credentials",
+      "props": [
+          {
+              "value": "user",
+              "type": "msg"
+          },
+          {
+              "value": "passwd",
+              "type": "msg"
+          }
+      ],
+      "x": 430,
+      "y": 140,
+      "wires": [
+          [
+              "0e152e10ad8b68ac"
+          ]
+      ]
   }
 ]

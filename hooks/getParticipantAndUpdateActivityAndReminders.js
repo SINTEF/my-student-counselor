@@ -18,10 +18,9 @@ async function getParticipantAndUpdateActivityAndReminders() {
     }
 
     //console.log(response)
-    const { name, lastUpdate, firstUpdate, phoneNumber } = response.data
-    if (name) {
-      event.state.user.name = name
-    }
+    const { name, phoneNumber, lastUpdate, firstUpdate, dagligeTriggered } = response.data
+    event.state.user.name = name
+    event.state.user.dagligeTriggered = dagligeTriggered
 
     // If startup
     if (event.type === 'proactive-trigger') {
@@ -89,8 +88,12 @@ async function getParticipantAndUpdateActivityAndReminders() {
         }
       )*/
       //bp.events.replyToEvent(event, payloads)
+
+      //bp.events.replyToEvent(event, [])
       await bp.dialog.jumpTo(event.target, event, flowname, nodename)
+      bp.events.replyToEvent(event, [])
       await bp.dialog.processEvent(event.target, event)
+
       event.setFlag(bp.IO.WellKnownFlags.SKIP_DIALOG_ENGINE, true)
       event.setFlag(bp.IO.WellKnownFlags.FORCE_PERSIST_STATE, true)
     }
